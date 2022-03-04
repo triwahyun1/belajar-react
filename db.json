@@ -27,57 +27,27 @@
   ],
   "crudjson2": [
     {
-      "id": 1,
-      "no": "12387976765",
-      "nama": "Tri",
+      "id": 3,
+      "no": "1234567890",
+      "nama": "Tri Wahyuni",
       "alamat": "SelatPanjang",
       "agama": "Islam",
-      "hobi": "Masak",
+      "hobi": [
+        "Memasak",
+        "Musik",
+        "Menonton"
+      ],
       "jeniskelamin": "Perempuan"
     },
     {
-      "id": 2,
-      "no": "45623465767",
-      "nama": "Yuni",
-      "alamat": "Dumai",
-      "agama": "Budha",
-      "hobi": "Musik",
-      "jeniskelamin": "Perempuan"
-    },
-    {
-      "id": 3,
-      "no": "12344565646",
+      "id": 4,
+      "no": "12387976765",
       "nama": "Wahyuni",
-      "alamat": "Pekanbaru",
-      "agama": "KongHuCu",
-      "hobi": "Menonton",
-      "jeniskelamin": "Perempuan"
-    },
-    {
-      "id": 5,
-      "no": "02343758634",
-      "nama": "Kiki",
-      "alamat": "Batam",
+      "alamat": "Dumai",
       "agama": "Kristen",
-      "hobi": "Jalan-Jalan",
-      "jeniskelamin": "Laki-Laki"
-    },
-    {
-      "id": 7,
-      "no": "78965436789",
-      "nama": "Fadil",
-      "alamat": "Bengkalis",
-      "agama": "Hindu",
-      "hobi": "Jalan-Jalan",
-      "jeniskelamin": "Laki-Laki"
-    },
-    {
-      "id": 9,
-      "no": "78654467678",
-      "nama": "Salsa",
-      "alamat": "Jakarta",
-      "agama": "Katholik",
-      "hobi": "Olahraga",
+      "hobi": [
+        "Jalan-Jalan"
+      ],
       "jeniskelamin": "Perempuan"
     }
   ]
