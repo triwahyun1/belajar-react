@@ -27,28 +27,108 @@
   ],
   "crudjson2": [
     {
-      "id": 3,
-      "no": "1234567890",
+      "id": 1,
+      "no": "0937454624",
       "nama": "Tri Wahyuni",
       "alamat": "SelatPanjang",
       "agama": "Islam",
       "hobi": [
         "Memasak",
         "Musik",
-        "Menonton"
+        "Jalan-Jalan"
       ],
       "jeniskelamin": "Perempuan"
     },
     {
-      "id": 4,
-      "no": "12387976765",
-      "nama": "Wahyuni",
-      "alamat": "Dumai",
+      "id": 2,
+      "no": "45786979807",
+      "nama": "Fadil",
+      "alamat": "Bengkalis",
       "agama": "Kristen",
       "hobi": [
-        "Jalan-Jalan"
+        "Menonton",
+        "Olahraga"
       ],
+      "jeniskelamin": "Laki-Laki"
+    },
+    {
+      "id": 4,
+      "no": "45786979807",
+      "nama": "Andir",
+      "alamat": "Bandung",
+      "agama": "KongHuCu",
+      "hobi": [
+        "Memasak"
+      ],
+      "jeniskelamin": "Laki-Laki"
+    }
+  ],
+  "crudjson3": [
+    {
+      "id": 1,
+      "no": "12387976765",
+      "nama": "Tri",
+      "alamat": "SelatPanjang",
+      "agama": "Islam",
+      "hobi": [],
       "jeniskelamin": "Perempuan"
+    },
+    {
+      "id": 2,
+      "no": "132534645657",
+      "nama": "Wahyuni",
+      "alamat": "Dumai",
+      "agama": "Katholik",
+      "hobi": [],
+      "jeniskelamin": "Perempuan"
+    }
+  ],
+  "agama": [
+    {
+      "id": 1,
+      "name": "Islam"
+    },
+    {
+      "id": 2,
+      "name": "Budha"
+    },
+    {
+      "id": 3,
+      "name": "Hindu"
+    },
+    {
+      "id": 4,
+      "name": "Kristen"
+    },
+    {
+      "id": 5,
+      "name": "Katholik"
+    },
+    {
+      "id": 6,
+      "name": "KongHuCu"
+    }
+  ],
+  "hobi": [
+    {
+      "id": 1,
+      "hoby": "Masak"
+    },
+    {
+      "id": 2,
+      "hoby": "Musik"
+    },
+    {
+      "id": 3,
+      "hoby": "Menonton"
+    },
+    {
+      "id": 4,
+      "hoby": "Olahraga"
+    },
+    {
+      "id": 5,
+      "hoby": "Jalan-Jalan"
     }
   ]
 }

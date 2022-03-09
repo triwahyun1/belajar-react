@@ -11,6 +11,7 @@ import NilaiHuruf from "./components/NilaiHuruf";
 import TableCustom from "./components/TableCustom";
 import Crudjson from "./components/Crudjson";
 import Crudjson2 from "./components/Crudjson2";
+import Crudjson3 from "./components/Crudjson3";
 import BootsLand from "./components/BootsLand";
 
 function App() {
@@ -56,10 +57,12 @@ function App() {
             <Route path="/crudjson2">
               <Crudjson2 />
             </Route>
+            <Route path="/crudjson3">
+              <Crudjson3 />
+            </Route>
             <Route path="/bootsland">
               <BootsLand />
             </Route>
-
           </Switch>
         </Router>
       </Box>

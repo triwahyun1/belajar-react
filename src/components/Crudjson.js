@@ -1,22 +1,38 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 const Crudjson = () => {
-  const [crudjson, setCrudjsons] = useState([]);
+  const [crudjson, setCrudjson] = useState([]);
+  const [form, setForm] = useState({
+    id: 0,
+    no: "",
+    nama: "",
+    alamat: "",
+  });
 
   const getData = async () => {
     const response = await fetch('http://localhost:8088/crudjson');
     const data = await response.json();
-    setCrudjsons(data);
-  }
+    setCrudjson(data);
+  };
 
   useEffect(() => {
     getData();
   }, []);
+
+  const resetForm = () => {
+    setForm({
+      id: 0,
+      no: "",
+      nama: "",
+      alamat: "",
+    })
+  };
 
   const deleteCrudjson = async (id) => {
     await fetch(`http://localhost:8088/crudjson/${id}`, {
@@ -26,74 +42,69 @@ const Crudjson = () => {
       }
     });
     getData();
+    resetForm();
   }
 
-  const [id, setID] = useState(0);
-  const [no, setNo] = useState('');
-  const [nama, setNama] = useState('');
-  const [alamat, setAlamat] = useState('');
-
-
-  const saveCrudjson = async (e) => {
-    e.preventDefault();
-    const crudjson = { no, nama, alamat };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     console.log(crudjson);
-
     await fetch('http://localhost:8088/crudjson', {
       method: "POST",
-      body: JSON.stringify(crudjson),
+      body: JSON.stringify(form),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-
     getData();
+    resetForm();
   }
 
-
-  const updateCrudjson = async (e) => {
-    e.preventDefault();
-    const crudjson = { no, nama, alamat };
+  const handleUpdate = async (e) => {
+    e.preventDefault()
     console.log(crudjson);
-    await fetch(`http://localhost:8088/crudjson/${id}`, {
+    console.log(form);
+    await fetch(`http://localhost:8088/crudjson/${form.id}`, {
       method: "PUT",
-      body: JSON.stringify(crudjson),
+      body: JSON.stringify(form),
       headers: {
         'Content-Type': 'application/json'
       }
     });
     getData();
-
-    setID(null)
-    setNama('')
-    setAlamat('')
-    setNo('')
+    resetForm();
   }
 
+  const handleChange = (e) => {
+    e.preventDefault();
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+
+    });
+  }
 
   return (
     <>
       <Box sx={{ p: 5 }}>
         <Typography variant='h6' sx={{ fontWeight: 'bold', ml: 4 }}>DATA MASYARAKAT</Typography>
-        <form onSubmit={id ? updateCrudjson : saveCrudjson}>
+        <form onSubmit={form.id > 0 ? handleUpdate : handleSubmit}>
           <Box sx={{ display: 'flex' }}>
             <Typography variant='body1' sx={{ fontWeight: 'bold', mr: 3.3 }}>NO KTP</Typography>
-            <input className="input" value={no} onChange={(e) => setNo(e.target.value)} type="text" />
+            <TextField name="no" onChange={handleChange} value={form.no}></TextField>
           </Box>
           <Box sx={{ display: 'flex' }}>
             <Typography variant='body1' sx={{ fontWeight: 'bold', mr: 5 }}>NAMA </Typography>
-            <input className="input" value={nama} onChange={(e) => setNama(e.target.value)} type="text" />
+            <TextField name="nama" onChange={handleChange} value={form.nama}></TextField>
           </Box>
           <Box sx={{ display: 'flex' }}>
             <Typography variant='body1' sx={{ fontWeight: 'bold', mr: 2.8 }}>ALAMAT</Typography>
-            <input className="input" value={alamat} onChange={(e) => setAlamat(e.target.value)} type="text" />
+            <TextField name="alamat" onChange={handleChange} value={form.alamat}></TextField>
           </Box>
           <Box sx={{ mt: 4, ml: 13 }}>
             <Button to={`/`} component={Link} sx={{ backgroundColor: '#fec1e4', color: 'black' }}>Back</Button>
             <Button type='submit' sx={{ backgroundColor: '#ffc09f', color: 'black', ml: 1, mr: 1 }} >Save</Button>
           </Box>
         </form>
-
 
         <Box sx={{ mt: 4 }}>
           <table border="1">
@@ -106,21 +117,21 @@ const Crudjson = () => {
               </tr>
             </thead>
             <tbody>
-              {crudjson.map((crudjson, index) => (
-                <tr key={crudjson.id}>
-                  <td>{crudjson.no}</td>
-                  <td>{crudjson.nama}</td>
-                  <td>{crudjson.alamat}</td>
+              {crudjson.map((item, index) => (
+                <tr key={item.id}>
+                  <td>{item.no}</td>
+                  <td>{item.nama}</td>
+                  <td>{item.alamat}</td>
                   <td>
-                    <Button onClick={() => {
-                      setID(crudjson.id)
-                      setNo(crudjson.no)
-                      setNama(crudjson.nama)
-                      setAlamat(crudjson.alamat)
-                    }} sx={{ color: 'blue' }}>
+                    <Button onClick={() => setForm({
+                      id: item.id,
+                      no: item.no,
+                      nama: item.nama,
+                      alamat: item.alamat,
+                    })} sx={{ color: 'blue' }}>
                       Edit
                     </Button>
-                    <Button onClick={() => deleteCrudjson(crudjson.id)} sx={{ color: 'red' }}>Delete</Button>
+                    <Button onClick={() => deleteCrudjson(item.id)} sx={{ color: 'red' }}>Delete</Button>
                   </td>
                 </tr>
               ))}

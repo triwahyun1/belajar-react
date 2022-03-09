@@ -90,8 +90,8 @@ function Home() {
                         <td></td>
                         <td><Button sx={{ backgroundColor: '#ffc09f', color: 'black' }}>Klik</Button></td>
                         <td>4</td>
-                        <td></td>
-                        <td><Button sx={{ backgroundColor: '#ffc09f', color: 'black' }}>Klik</Button></td>
+                        <td><Typography>Crud Json3-server</Typography></td>
+                        <td><Button  to={`/crudjson3`} component={Link} sx={{ backgroundColor: '#ffc09f', color: 'black' }}>Klik</Button></td>
                         <td>4</td>
                         <td></td>
                         <td><Button sx={{ backgroundColor: '#ffc09f', color: 'black' }}>Klik</Button></td>
